@@ -1,0 +1,17 @@
+apiVersion: x.within.website/v1
+kind: App
+metadata:
+  name: techarosite
+
+spec:
+  image: ghcr.io/techarohq/site:latest
+  autoUpdate: true
+  replicas: 1
+
+  ingress:
+    enabled: true
+    host: techaro.lol
+
+  healthcheck:
+    enabled: true
+    path: /healthz
