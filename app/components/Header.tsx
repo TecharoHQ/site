@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
@@ -13,8 +14,14 @@ export default function Header() {
       <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4 sm:px-8">
         <Link
           href="/"
-          className="font-heading text-xl font-bold tracking-tight text-foreground"
+          className="flex items-center gap-2 font-heading text-xl font-bold tracking-tight text-foreground"
         >
+          <Image
+            src="/img/logo_waffle.svg"
+            alt="Techaro logo"
+            width={28}
+            height={28}
+          />
           Techaro
         </Link>
         <ul className="flex items-center gap-6">
