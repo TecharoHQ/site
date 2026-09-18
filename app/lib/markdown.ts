@@ -143,3 +143,21 @@ last_updated: ${LAST_UPDATED}
 
 ${body}`;
 }
+
+export function renderNotFoundMarkdown(pathname: string): string {
+  return `---
+title: "Not Found"
+description: "The requested page does not exist on techaro.lol."
+---
+
+# 404 Not Found
+
+There is no page at \`${pathname}\` on techaro.lol. Check the URL or start from one of these:
+
+- [Home](${SITE}/index.md): What Techaro does.
+- [Products](${SITE}/products.md): Anubis and BotStopper.
+- [llms.txt](${SITE}/llms.txt): Index of this site for AI agents.
+- [Sitemap](${SITE}/sitemap.xml): Every page on this site.
+- [Anubis documentation](https://anubis.techaro.lol): Install and configure Anubis.
+`;
+}

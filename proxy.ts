@@ -4,6 +4,7 @@ import {
   markdownPageFor,
   markdownPath,
   renderMarkdown,
+  renderNotFoundMarkdown,
 } from "@/app/lib/markdown";
 
 const aiBotUA =
@@ -42,10 +43,26 @@ function wantsMarkdown(request: NextRequest): boolean {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const page = markdownPageFor(pathname);
-  if (!page) return NextResponse.next();
-
   const explicitMd = pathname.endsWith(".md");
   const isGet = request.method === "GET" || request.method === "HEAD";
+
+  // The matcher sends every path that is not a real route or static file
+  // here, so an unknown path is a 404. Give agents a Markdown 404 body.
+  if (!page) {
+    if (isGet && (explicitMd || wantsMarkdown(request))) {
+      return new NextResponse(
+        request.method === "HEAD" ? null : renderNotFoundMarkdown(pathname),
+        {
+          status: 404,
+          headers: {
+            "Content-Type": "text/markdown; charset=utf-8",
+            Vary: "Accept, User-Agent",
+          },
+        },
+      );
+    }
+    return NextResponse.next();
+  }
 
   if (isGet && (explicitMd || wantsMarkdown(request))) {
     return new NextResponse(
@@ -72,14 +89,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
+  // Every path except Next.js internals and real non-page routes, so
+  // unknown paths can get a Markdown 404. Keep in sync with app/ and public/.
   matcher: [
-    "/",
-    "/index.md",
-    "/products",
-    "/products.md",
-    "/testimonials",
-    "/testimonials.md",
-    "/contact",
-    "/contact.md",
+    "/((?!_next/|img/|healthz$|sitemap\\.xml$|robots\\.txt$|llms\\.txt$|agents\\.md$|favicon\\.ico$).*)",
   ],
 };
