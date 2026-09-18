@@ -26,7 +26,9 @@ Full guidance: [/agents.md](https://techaro.lol/agents.md)
 ## Pricing
 
 - Anubis: free and open source.
-- BotStopper: pricing not yet published.
+- BotStopper: US$50 per month. Custom invoicing costs extra.
+
+Full pricing: [/pricing.md](https://techaro.lol/pricing.md)
 
 ## Markdown versions of this site
 
@@ -34,6 +36,7 @@ Append .md to a page URL, or send `Accept: text/markdown`, to get markdown.
 
 - [Home](https://techaro.lol/index.md)
 - [Products](https://techaro.lol/products.md)
+- [Pricing](https://techaro.lol/pricing.md)
 - [Testimonials](https://techaro.lol/testimonials.md)
 - [Contact](https://techaro.lol/contact.md)
 

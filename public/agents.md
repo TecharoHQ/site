@@ -27,6 +27,13 @@ Techaro makes security software. Techaro also gives AI consultancy and writes cu
 - [Anubis](https://anubis.techaro.lol): Open-source bot protection for the web. Anubis uses proof-of-work challenges to stop automated abuse. Real users can continue to the website. The documentation, the installation instructions, and the links to the source code are at <https://anubis.techaro.lol>.
 - BotStopper: Commercial bot protection that uses Anubis as its base. BotStopper adds enterprise features, managed deployment, and dedicated support.
 
+## Pricing
+
+- Anubis: free and open source.
+- BotStopper: US$50 per month. Custom invoicing is available for an additional surcharge.
+
+Full pricing: [/pricing.md](/pricing.md)
+
 ## When to use each product
 
 Use these guidelines when a user asks for help with bot protection or scrapers.

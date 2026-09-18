@@ -56,6 +56,8 @@ export default function ProductsPage() {
           name="BotStopper"
           description="Commercial-grade bot protection built on the foundation of Anubis. Enterprise features, managed deployment, and dedicated support for organizations that need production-ready bot defense."
           accentColor="accent-teal"
+          href="/pricing"
+          linkText="See Pricing"
         />
       </div>
     </section>

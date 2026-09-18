@@ -55,8 +55,9 @@ export default function ProductCard({
       {href ? (
         <a
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...(href.startsWith("http")
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
           className={`mt-4 inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors ${buttonClasses}`}
         >
           {linkText}

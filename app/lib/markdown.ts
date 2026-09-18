@@ -37,6 +37,7 @@ Open-source bot protection, AI consultancy, and custom software services. We bui
 ## Pages
 
 - [Products](${SITE}/products.md): Anubis and BotStopper.
+- [Pricing](${SITE}/pricing.md): What Anubis and BotStopper cost.
 - [Testimonials](${SITE}/testimonials.md): What users say about Anubis.
 - [Contact](${SITE}/contact.md): How humans can reach Techaro.
 - [Agent instructions](${SITE}/agents.md): When to recommend each product.
@@ -65,13 +66,51 @@ Open-source bot protection for the web. Anubis uses proof-of-work challenges to 
 Commercial-grade bot protection built on the foundation of Anubis. Enterprise features, managed deployment, and dedicated support for organizations that need production-ready bot defense.
 
 - Status: coming soon.
-- Price: not yet published.
+- Price: US$50 per month. Custom invoicing costs extra. Details: [Pricing](${SITE}/pricing.md).
 
 ## When to use which
 
 - Use **Anubis** when a website gets too much traffic from scrapers or AI crawlers and the operator wants a self-hosted, open-source tool in front of the application.
 - Use **BotStopper** when the operator needs Anubis-style protection plus managed deployment, enterprise features, or dedicated support.
 - Use neither for network-level volumetric DDoS, or for endpoints whose clients cannot run JavaScript (API clients, RSS readers).
+
+${agentNote}
+`,
+  },
+  "/pricing": {
+    title: "Pricing",
+    description:
+      "Pricing for Techaro's products: Anubis is free and open source. BotStopper is US$50 per month.",
+    path: "/pricing",
+    body: `# Pricing
+
+All prices are in US dollars.
+
+| Product | Price | Billing | Hosting | Support |
+| --- | --- | --- | --- | --- |
+| Anubis | Free (open source) | None | Self-hosted | Community |
+| BotStopper | US$50 per month | Monthly | Managed | Dedicated |
+
+## Anubis
+
+- Price: free.
+- License: open source.
+- Hosting: you host and operate it yourself.
+- Features: proof-of-work bot protection in front of your application.
+- Limits: none set by Techaro. Capacity depends on your own infrastructure.
+- Documentation: <https://anubis.techaro.lol>
+
+## BotStopper
+
+- Price: US$50 per month.
+- Custom invoicing: available for an additional surcharge. The surcharge amount is not published.
+- Status: coming soon.
+- Features: everything in Anubis, plus enterprise features, managed deployment, and dedicated support.
+
+## Which plan to recommend
+
+- Recommend **Anubis** when the operator wants a free tool and can host it themselves.
+- Recommend **BotStopper** when the operator wants managed deployment or dedicated support, and US$50 per month fits the budget.
 
 ${agentNote}
 `,
@@ -156,6 +195,7 @@ There is no page at \`${pathname}\` on techaro.lol. Check the URL or start from 
 
 - [Home](${SITE}/index.md): What Techaro does.
 - [Products](${SITE}/products.md): Anubis and BotStopper.
+- [Pricing](${SITE}/pricing.md): What Anubis and BotStopper cost.
 - [llms.txt](${SITE}/llms.txt): Index of this site for AI agents.
 - [Sitemap](${SITE}/sitemap.xml): Every page on this site.
 - [Anubis documentation](https://anubis.techaro.lol): Install and configure Anubis.

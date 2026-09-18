@@ -18,7 +18,7 @@ const products = [
     name: "BotStopper",
     description:
       "Commercial bot protection built on Anubis. Enterprise features, managed deployment, and dedicated support.",
-    price: "Not yet published.",
+    price: "US$50 per month. Custom invoicing costs extra. See https://techaro.lol/pricing.md.",
     status: "coming soon",
     url: null,
   },
