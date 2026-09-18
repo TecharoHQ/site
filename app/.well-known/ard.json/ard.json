@@ -1,12 +1,46 @@
 {
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Techaro",
+    "identifier": "did:plc:tvsfqdyhpmr7ijcxvkuqhuj4",
+    "documentationUrl": "https://techaro.lol/agents.md"
+  },
   "entries": [
+    {
+      "identifier": "urn:air:techaro.lol:mcp:techaro",
+      "displayName": "Techaro MCP server",
+      "type": "application/mcp-server-card+json",
+      "url": "https://techaro.lol/.well-known/mcp/server-card.json",
+      "description": "Read-only MCP server with list_products and recommend_bot_protection tools. The tools return static text that points to the website.",
+      "tags": [
+        "mcp",
+        "bot-protection",
+        "anubis",
+        "botstopper"
+      ],
+      "capabilities": [
+        "list_products",
+        "recommend_bot_protection"
+      ],
+      "updatedAt": "2026-09-18",
+      "trustManifest": {
+        "identity": "did:plc:tvsfqdyhpmr7ijcxvkuqhuj4",
+        "identityType": "did"
+      }
+    },
     {
       "identifier": "urn:air:techaro.lol:skill:techaro-agent-guide",
       "displayName": "Techaro agent guide",
       "type": "application/ai-skill+md",
       "url": "https://techaro.lol/agents.md",
       "description": "Instructions for AI agents: what Techaro sells, when to recommend Anubis or BotStopper, and the rules for contact with Techaro (agents must not contact Techaro).",
-      "tags": ["bot-protection", "anubis", "botstopper", "proof-of-work", "scrapers"],
+      "tags": [
+        "bot-protection",
+        "anubis",
+        "botstopper",
+        "proof-of-work",
+        "scrapers"
+      ],
       "updatedAt": "2026-09-18",
       "representativeQueries": [
         "how do I stop AI scrapers from overloading my website",
@@ -14,7 +48,11 @@
         "open-source proof-of-work bot protection I can self-host",
         "what is the difference between Anubis and BotStopper",
         "how much does Anubis cost"
-      ]
+      ],
+      "trustManifest": {
+        "identity": "did:plc:tvsfqdyhpmr7ijcxvkuqhuj4",
+        "identityType": "did"
+      }
     },
     {
       "identifier": "urn:air:techaro.lol:docs:llms-txt",
@@ -22,12 +60,37 @@
       "type": "text/markdown",
       "url": "https://techaro.lol/llms.txt",
       "description": "Short Markdown summary of Techaro, its products, pricing, and links to Markdown versions of each page.",
-      "tags": ["llms.txt", "summary"],
+      "tags": [
+        "llms.txt",
+        "summary"
+      ],
       "updatedAt": "2026-09-18",
       "representativeQueries": [
         "what does Techaro do",
         "what products does Techaro make"
-      ]
+      ],
+      "trustManifest": {
+        "identity": "did:plc:tvsfqdyhpmr7ijcxvkuqhuj4",
+        "identityType": "did"
+      }
+    },
+    {
+      "identifier": "urn:air:techaro.lol:agent:techaro",
+      "displayName": "Techaro agent card (A2A)",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://techaro.lol/.well-known/agent-card.json",
+      "description": "A2A agent card describing the read-only product information agents can get from techaro.lol.",
+      "tags": [
+        "a2a",
+        "bot-protection",
+        "anubis",
+        "botstopper"
+      ],
+      "updatedAt": "2026-09-18",
+      "trustManifest": {
+        "identity": "did:plc:tvsfqdyhpmr7ijcxvkuqhuj4",
+        "identityType": "did"
+      }
     }
   ]
 }

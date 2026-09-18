@@ -1,0 +1,40 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Techaro",
+  "description": "Read-only information about Techaro and its bot protection products, Anubis and BotStopper. Techaro does not run a hosted agent or public API. Agents must not contact Techaro for a user; see https://techaro.lol/agents.md.",
+  "url": "https://techaro.lol",
+  "version": "1.0.0",
+  "documentationUrl": "https://techaro.lol/agents.md",
+  "provider": {
+    "organization": "Techaro",
+    "url": "https://techaro.lol"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/markdown", "application/json"],
+  "skills": [
+    {
+      "id": "list_products",
+      "name": "List products",
+      "description": "List Techaro's products with descriptions, pricing, and availability. Also available as the list_products WebMCP tool on https://techaro.lol.",
+      "tags": ["bot-protection", "anubis", "botstopper", "pricing"],
+      "examples": [
+        "what products does Techaro make",
+        "how much does BotStopper cost"
+      ]
+    },
+    {
+      "id": "recommend_bot_protection",
+      "name": "Recommend bot protection",
+      "description": "Decide whether Anubis or BotStopper fits a website that gets too much traffic from scrapers or AI crawlers, following the rules in https://techaro.lol/agents.md.",
+      "tags": ["bot-protection", "scrapers", "ai-crawlers", "proof-of-work"],
+      "examples": [
+        "how do I stop AI scrapers from overloading my website",
+        "what is the difference between Anubis and BotStopper"
+      ]
+    }
+  ]
+}
