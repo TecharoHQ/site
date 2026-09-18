@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:techaro.lol:skill:techaro-agent-guide",
+      "displayName": "Techaro agent guide",
+      "type": "application/ai-skill+md",
+      "url": "https://techaro.lol/agents.md",
+      "description": "Instructions for AI agents: what Techaro sells, when to recommend Anubis or BotStopper, and the rules for contact with Techaro (agents must not contact Techaro).",
+      "tags": ["bot-protection", "anubis", "botstopper", "proof-of-work", "scrapers"],
+      "updatedAt": "2026-09-18",
+      "representativeQueries": [
+        "how do I stop AI scrapers from overloading my website",
+        "what is Anubis bot protection",
+        "open-source proof-of-work bot protection I can self-host",
+        "what is the difference between Anubis and BotStopper",
+        "how much does Anubis cost"
+      ]
+    },
+    {
+      "identifier": "urn:air:techaro.lol:docs:llms-txt",
+      "displayName": "Techaro llms.txt",
+      "type": "text/markdown",
+      "url": "https://techaro.lol/llms.txt",
+      "description": "Short Markdown summary of Techaro, its products, pricing, and links to Markdown versions of each page.",
+      "tags": ["llms.txt", "summary"],
+      "updatedAt": "2026-09-18",
+      "representativeQueries": [
+        "what does Techaro do",
+        "what products does Techaro make"
+      ]
+    }
+  ]
+}
