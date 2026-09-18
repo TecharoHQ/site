@@ -4,6 +4,10 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Techaro for sales inquiries, partnerships, and support.",
+  alternates: {
+    canonical: "/contact",
+    types: { "text/markdown": "/contact.md" },
+  },
 };
 
 export default function ContactPage() {

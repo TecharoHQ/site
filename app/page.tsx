@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    types: { "text/markdown": "/index.md" },
+  },
+};
 
 const capabilities = [
   {
@@ -28,7 +36,7 @@ const jsonLd = {
     "Security software, AI consultancy, and custom software services.",
   knowsAbout: ["Bot Protection", "AI Consultancy", "Software Development"],
   sameAs: [
-    "https://www.wikidata.org/wiki/Q134301689",
+    "https://www.wikidata.org/wiki/Q134301803",
     "https://github.com/TecharoHQ",
     "https://www.linkedin.com/company/techaro/",
     "https://bsky.app/profile/techaro.lol",

@@ -3,6 +3,7 @@ import { Podkova, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import WebMCP from "@/app/components/WebMCP";
 
 const podkova = Podkova({
   subsets: ["latin"],
@@ -17,6 +18,7 @@ const schibstedGrotesk = Schibsted_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://techaro.lol"),
   title: {
     default: "Techaro — Security Software & AI Consultancy",
     template: "%s | Techaro",
@@ -44,6 +46,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WebMCP />
       </body>
     </html>
   );

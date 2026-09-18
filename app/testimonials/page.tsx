@@ -4,6 +4,10 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Testimonials",
   description: "See what our users say about Anubis and Techaro's products.",
+  alternates: {
+    canonical: "/testimonials",
+    types: { "text/markdown": "/testimonials.md" },
+  },
 };
 
 const testimonials = [
