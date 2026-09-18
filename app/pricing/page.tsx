@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import JsonLd from "@/app/components/JsonLd";
+import { anubis, botstopper, breadcrumbs, graph } from "@/app/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -10,61 +12,7 @@ export const metadata: Metadata = {
   },
 };
 
-const publisher = {
-  "@type": "Organization",
-  name: "Techaro",
-  url: "https://techaro.lol",
-};
-
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Anubis",
-    url: "https://anubis.techaro.lol",
-    applicationCategory: "SecurityApplication",
-    operatingSystem: "Linux, macOS, Windows",
-    description:
-      "Open-source bot protection for the web that uses proof-of-work challenges to stop automated abuse.",
-    publisher,
-    offers: {
-      "@type": "Offer",
-      url: "https://techaro.lol/pricing",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Free and open source. Self-hosted.",
-    },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "BotStopper",
-    url: "https://techaro.lol/products",
-    applicationCategory: "SecurityApplication",
-    description:
-      "Commercial bot protection built on Anubis, with enterprise features, managed deployment, and dedicated support.",
-    publisher,
-    offers: {
-      "@type": "Offer",
-      url: "https://techaro.lol/pricing",
-      price: "50.00",
-      priceCurrency: "USD",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: "50.00",
-        priceCurrency: "USD",
-        unitCode: "MON",
-        referenceQuantity: {
-          "@type": "QuantitativeValue",
-          value: 1,
-          unitCode: "MON",
-        },
-      },
-      description:
-        "US$50 per month. Custom invoicing is available for an additional surcharge.",
-    },
-  },
-];
+const jsonLd = graph(anubis, botstopper, breadcrumbs("Pricing", "/pricing"));
 
 const tiers = [
   {
@@ -100,10 +48,7 @@ const tiers = [
 export default function PricingPage() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-20 sm:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
         Pricing
       </h1>

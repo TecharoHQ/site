@@ -5,7 +5,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/testimonials", label: "Testimonials" },
-  { href: "https://anubis.techaro.lol", label: "Docs" },
+  { href: "/docs", label: "Docs" },
   { href: "/contact", label: "Contact" },
 ];
 

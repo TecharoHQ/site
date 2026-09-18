@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/app/components/JsonLd";
+import { graph, organization, ORG_ID, SITE } from "@/app/lib/jsonld";
 
 export const metadata: Metadata = {
   alternates: {
@@ -26,30 +28,59 @@ const capabilities = [
   },
 ];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Techaro",
-  url: "https://techaro.lol",
-  logo: "https://techaro.lol/img/logo_waffle.svg",
-  description:
-    "Security software, AI consultancy, and custom software services.",
-  knowsAbout: ["Bot Protection", "AI Consultancy", "Software Development"],
-  sameAs: [
-    "https://www.wikidata.org/wiki/Q134301803",
-    "https://github.com/TecharoHQ",
-    "https://www.linkedin.com/company/techaro/",
-    "https://bsky.app/profile/techaro.lol",
-  ],
-};
+const faqs = [
+  {
+    question: "What is Anubis?",
+    answer:
+      "Anubis is open-source bot protection for the web. It uses proof-of-work challenges to stop automated abuse while letting real users through. It is free, and you host it yourself. Installation instructions are at https://anubis.techaro.lol.",
+  },
+  {
+    question: "What is the difference between Anubis and BotStopper?",
+    answer:
+      "BotStopper is commercial bot protection built on Anubis. It adds enterprise features, managed deployment, and dedicated support. BotStopper is coming soon.",
+  },
+  {
+    question: "How much do Anubis and BotStopper cost?",
+    answer:
+      "Anubis is free and open source. BotStopper costs US$50 per month. Custom invoicing costs extra.",
+  },
+  {
+    question: "When is Anubis the wrong tool?",
+    answer:
+      "Do not use Anubis for network-level volumetric DDoS attacks, or for endpoints whose clients cannot run JavaScript, such as API clients or RSS readers.",
+  },
+];
+
+const jsonLd = graph(
+  organization,
+  {
+    "@type": "WebSite",
+    "@id": `${SITE}/#website`,
+    url: SITE,
+    name: "Techaro",
+    publisher: { "@id": ORG_ID },
+  },
+  ...capabilities.map(({ title, description }) => ({
+    "@type": "Service",
+    name: title,
+    description,
+    provider: { "@id": ORG_ID },
+    areaServed: "Worldwide",
+  })),
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  },
+);
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <section className="mx-auto max-w-5xl px-6 py-24 sm:px-8 sm:py-32">
         <h1 className="font-heading text-5xl font-bold leading-tight tracking-tight text-foreground md:text-7xl">
@@ -89,6 +120,26 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-5xl px-6 py-20 sm:px-8">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground">
+            Frequently Asked Questions
+          </h2>
+          <dl className="mt-8 grid gap-8 sm:grid-cols-2">
+            {faqs.map(({ question, answer }) => (
+              <div key={question}>
+                <dt className="font-heading text-lg font-bold tracking-tight text-foreground">
+                  {question}
+                </dt>
+                <dd className="mt-2 text-text-secondary leading-relaxed">
+                  {answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
     </>

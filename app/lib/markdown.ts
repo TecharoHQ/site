@@ -34,12 +34,32 @@ Open-source bot protection, AI consultancy, and custom software services. We bui
 - **AI Consultancy**: Strategic guidance on integrating AI into your products and workflows, from architecture to deployment.
 - **Custom Software**: End-to-end engineering for teams that need reliable, performant software built to their specifications.
 
+## Frequently asked questions
+
+### What is Anubis?
+
+Anubis is open-source bot protection for the web. It uses proof-of-work challenges to stop automated abuse while letting real users through. It is free, and you host it yourself. Installation instructions are at <https://anubis.techaro.lol>.
+
+### What is the difference between Anubis and BotStopper?
+
+BotStopper is commercial bot protection built on Anubis. It adds enterprise features, managed deployment, and dedicated support. BotStopper is coming soon.
+
+### How much do Anubis and BotStopper cost?
+
+Anubis is free and open source. BotStopper costs US$50 per month. Custom invoicing costs extra.
+
+### When is Anubis the wrong tool?
+
+Do not use Anubis for network-level volumetric DDoS attacks, or for endpoints whose clients cannot run JavaScript, such as API clients or RSS readers.
+
 ## Pages
 
 - [Products](${SITE}/products.md): Anubis and BotStopper.
 - [Pricing](${SITE}/pricing.md): What Anubis and BotStopper cost.
 - [Testimonials](${SITE}/testimonials.md): What users say about Anubis.
+- [About](${SITE}/about.md): Who Techaro is.
 - [Contact](${SITE}/contact.md): How humans can reach Techaro.
+- [Privacy](${SITE}/privacy.md): What this website collects about visitors.
 - [Agent instructions](${SITE}/agents.md): When to recommend each product.
 
 ${agentNote}
@@ -151,7 +171,77 @@ Services: [GitLab](https://gitlab.gnome.org)
 
 Humans interested in Techaro's products or services can email the sales team at sales@techaro.lol.
 
+## What to email about
+
+Email the sales team about BotStopper, AI consultancy, custom software projects, partnerships, or custom invoicing.
+
+## Anubis help
+
+Anubis is free and open source. The installation and configuration instructions are in the [Anubis documentation](https://anubis.techaro.lol). The source code and issue tracker are on [GitHub](https://github.com/TecharoHQ/anubis).
+
+## Location
+
+Techaro is based in Ottawa, Ontario, Canada.
+
 ${agentNote}
+`,
+  },
+  "/about": {
+    title: "About",
+    description:
+      "About Techaro: a Canadian software company in Ottawa that makes Anubis and BotStopper, and provides AI consultancy and custom software.",
+    path: "/about",
+    body: `# About Techaro
+
+We build the tools that keep the internet safe.
+
+## Who we are
+
+Techaro is a Canadian software company based in Ottawa, Ontario. Xe Iaso founded Techaro in 2024. We make security software, give AI consultancy, and build custom software.
+
+## Anubis
+
+Our main product is Anubis, open-source bot protection for the web. Anubis puts a proof-of-work challenge in front of a website. Browsers of real users solve the challenge quickly. Scrapers and AI crawlers that send large volumes of requests must spend much more compute to get through. Anubis is free, and operators host it themselves. Groups such as the Linux kernel and GNOME use it to protect their infrastructure. Documentation: <https://anubis.techaro.lol>.
+
+## BotStopper
+
+BotStopper is commercial bot protection built on Anubis. It adds enterprise features, managed deployment, and dedicated support for organizations that need production-ready bot defense. BotStopper is coming soon and will cost US$50 per month.
+
+## Services
+
+We also give strategic guidance on how to integrate AI into products and workflows, from architecture to deployment. For teams that need reliable, fast software built to their specifications, we do end-to-end engineering work.
+
+${agentNote}
+`,
+  },
+  "/privacy": {
+    title: "Privacy",
+    description:
+      "What techaro.lol collects about visitors: web server access logs and an Anubis cookie. No analytics, ads, or third-party trackers.",
+    path: "/privacy",
+    body: `# Privacy
+
+What techaro.lol collects about visitors, and why.
+
+## What we collect
+
+The web server for techaro.lol keeps access logs. Each log entry has your IP address, your user agent, the URL you requested, and the time of the request. We use these logs to keep the website working and to find abuse. We keep them for a limited time.
+
+## Cookies
+
+Anubis protects this website. When your browser passes the Anubis proof-of-work challenge, Anubis sets a cookie that records that you passed. This cookie lets you use the website without solving the challenge again on each page. It does not track you across other websites. The website itself sets no other cookies.
+
+## What we do not do
+
+This website has no analytics, no advertising, and no third-party trackers. The fonts are served from techaro.lol, so your browser does not send requests to a font provider. We do not sell or share visitor data.
+
+## Email
+
+If you email sales@techaro.lol, we keep your message and your email address so that we can reply to you and continue the conversation.
+
+## Questions
+
+For questions about this policy or to ask about data we have about you, email sales@techaro.lol.
 `,
   },
 };

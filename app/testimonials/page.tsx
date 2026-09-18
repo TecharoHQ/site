@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import JsonLd from "@/app/components/JsonLd";
+import { anubis, ANUBIS_ID, breadcrumbs, graph } from "@/app/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Testimonials",
@@ -22,6 +24,8 @@ const testimonials = [
     avatarSrc: "/img/social-proof/linux-kernel-social-proof-avatar.jpg",
     sourceLink:
       "https://social.kernel.org/objects/1bb84190-f207-4adc-ac0e-8eb87a8a60f9",
+    reviewBody:
+      "git.kernel.org and lore.kernel.org now require proof of work. Big thanks to Anubis developers for filling this important need.",
     quotes: [
       <>
         <a
@@ -50,6 +54,8 @@ const testimonials = [
     avatarSrc: "/img/social-proof/gnome-social-proof-avatar.jpg",
     sourceLink:
       "https://discourse.gnome.org/t/anime-girl-on-gnome-gitlab/27689/10",
+    reviewBody:
+      "Folks, unless you have a proposal (and a budget) for replacing Anubis with a CDN with protection against hostile web scrapers, all these arguments are pointless bikeshed.",
     quotes: [
       "Folks, unless you have a proposal (and a budget) for replacing Anubis with a CDN with protection against hostile web scrapers, all these arguments are pointless bikeshed.",
       "Also: if you're intimidated or put off by a drawing that appears, on average, for less than 5 seconds, I strongly recommend you turn off your computer and go outside for a while.",
@@ -57,9 +63,27 @@ const testimonials = [
   },
 ];
 
+const jsonLd = graph(
+  anubis,
+  ...testimonials.map((t) => ({
+    "@type": "Review",
+    itemReviewed: { "@id": ANUBIS_ID },
+    reviewBody: t.reviewBody,
+    url: t.sourceLink,
+    author: {
+      "@type": "Person",
+      name: t.name,
+      jobTitle: t.title,
+      affiliation: { "@type": "Organization", name: t.org },
+    },
+  })),
+  breadcrumbs("Testimonials", "/testimonials"),
+);
+
 export default function TestimonialsPage() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-20 sm:px-8">
+      <JsonLd data={jsonLd} />
       <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
         Testimonials
       </h1>

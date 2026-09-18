@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+const footerLinks = [
+  { href: "/products", label: "Products" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/about", label: "About" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
@@ -7,25 +15,16 @@ export default function Footer() {
         <p className="text-sm text-text-secondary">
           &copy; {new Date().getFullYear()} Techaro. All rights reserved.
         </p>
-        <nav className="flex items-center gap-6">
-          <Link
-            href="/products"
-            className="text-sm text-text-secondary transition-colors hover:text-accent"
-          >
-            Products
-          </Link>
-          <Link
-            href="/pricing"
-            className="text-sm text-text-secondary transition-colors hover:text-accent"
-          >
-            Pricing
-          </Link>
-          <Link
-            href="/contact"
-            className="text-sm text-text-secondary transition-colors hover:text-accent"
-          >
-            Contact
-          </Link>
+        <nav className="flex flex-wrap items-center gap-6">
+          {footerLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-sm text-text-secondary transition-colors hover:text-accent"
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
       </div>
     </footer>
