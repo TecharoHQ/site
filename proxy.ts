@@ -92,6 +92,6 @@ export const config = {
   // Every path except Next.js internals and real non-page routes, so
   // unknown paths can get a Markdown 404. Keep in sync with app/ and public/.
   matcher: [
-    "/((?!_next/|img/|\\.well-known/|healthz$|mcp$|opengraph-image|sitemap\\.xml$|robots\\.txt$|llms\\.txt$|agents\\.md$|favicon\\.ico$).*)",
+    "/((?!_next/|img/|\\.well-known/|healthz$|mcp$|api/|openapi\\.json$|opengraph-image|sitemap\\.xml$|robots\\.txt$|llms\\.txt$|agents\\.md$|favicon\\.ico$).*)",
   ],
 };

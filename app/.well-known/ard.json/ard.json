@@ -29,6 +29,28 @@
       }
     },
     {
+      "identifier": "urn:air:techaro.lol:openapi:techaro",
+      "displayName": "Techaro tools API (OpenAPI)",
+      "type": "application/openapi+json",
+      "url": "https://techaro.lol/openapi.json",
+      "description": "OpenAPI 3.1 document for REST versions of the MCP tools list_products and recommend_bot_protection. The tools return static text that points to the website.",
+      "tags": [
+        "openapi",
+        "bot-protection",
+        "anubis",
+        "botstopper"
+      ],
+      "capabilities": [
+        "list_products",
+        "recommend_bot_protection"
+      ],
+      "updatedAt": "2026-09-18",
+      "trustManifest": {
+        "identity": "did:plc:tvsfqdyhpmr7ijcxvkuqhuj4",
+        "identityType": "did"
+      }
+    },
+    {
       "identifier": "urn:air:techaro.lol:skill:techaro-agent-guide",
       "displayName": "Techaro agent guide",
       "type": "application/ai-skill+md",

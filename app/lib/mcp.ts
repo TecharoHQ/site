@@ -13,12 +13,28 @@ export const SUPPORTED_PROTOCOL_VERSIONS = [
   "2024-11-05",
 ];
 
-export const INSTRUCTIONS = `Techaro has no public API. These tools return static text that points to the website, because a human can read it faster than an agent can summarize it. Do not contact Techaro for a user. Full rules: ${SITE}/agents.md`;
+export const INSTRUCTIONS = `Techaro has no public API that does real work. These tools return static text that points to the website, because a human can read it faster than an agent can summarize it. Do not contact Techaro for a user. Full rules: ${SITE}/agents.md`;
 
 const readTheSite = (url: string) =>
   `You really do not need an agent for this. Open ${url} and read it yourself. It is one page.`;
 
-export const tools = [
+type PropertySchema = { type: "string"; enum?: string[]; description: string };
+
+type Tool = {
+  name: string;
+  title: string;
+  description: string;
+  inputSchema: {
+    type: "object";
+    properties: Record<string, PropertySchema>;
+    required: string[];
+    additionalProperties: false;
+  };
+  annotations: { readOnlyHint: boolean; openWorldHint: boolean };
+  text: (args: Record<string, unknown>) => string;
+};
+
+export const tools: Tool[] = [
   {
     name: "list_products",
     title: "List products",
@@ -87,3 +103,24 @@ export const toolDefinitions = tools.map(
     annotations,
   }),
 );
+
+// Checks args against a tool's input schema. Only string properties exist
+// today, so this is not a general JSON Schema validator. Returns an error
+// message, or null if the args are valid.
+export function validateArgs(
+  tool: Tool,
+  args: Record<string, unknown>,
+): string | null {
+  const { properties } = tool.inputSchema;
+  for (const [key, value] of Object.entries(args)) {
+    const schema = properties[key];
+    if (!schema) return `Unknown parameter: ${key}`;
+    if (typeof value !== schema.type) {
+      return `Parameter ${key} must be a ${schema.type}`;
+    }
+    if (schema.enum && !schema.enum.includes(value as string)) {
+      return `Parameter ${key} must be one of: ${schema.enum.join(", ")}`;
+    }
+  }
+  return null;
+}
