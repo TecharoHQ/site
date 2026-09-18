@@ -9,6 +9,16 @@ const nextConfig: NextConfig = {
         destination: "https://anubis.techaro.lol/docs/",
         permanent: false,
       },
+      {
+        source: "/about",
+        destination: "/products",
+        permanent: false,
+      },
+      {
+        source: "/about.md",
+        destination: "/products.md",
+        permanent: false,
+      },
       ...["/developers", "/console", "/dashboard"].map((source) => ({
         source,
         destination: "https://sponsors.xeiaso.net",
