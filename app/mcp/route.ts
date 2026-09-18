@@ -66,8 +66,13 @@ export async function POST(request: Request) {
       if (!tool) {
         return error(id, -32602, `Unknown tool: ${String(msg.params?.name)}`);
       }
+      const args =
+        typeof msg.params?.arguments === "object" &&
+        msg.params.arguments !== null
+          ? (msg.params.arguments as Record<string, unknown>)
+          : {};
       return result(id, {
-        content: [{ type: "text", text: tool.text }],
+        content: [{ type: "text", text: tool.text(args) }],
         isError: false,
       });
     }

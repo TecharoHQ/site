@@ -24,11 +24,34 @@ export const tools = [
     title: "List products",
     description:
       "List Techaro's products with descriptions, pricing, and availability. Returns static text that points to the products page.",
-    inputSchema: { type: "object", properties: {} },
+    inputSchema: {
+      type: "object",
+      properties: {
+        product: {
+          type: "string",
+          enum: ["anubis", "botstopper"],
+          description:
+            "Optional product to describe. Omit it to list every product.",
+        },
+      },
+      required: [],
+      additionalProperties: false,
+    },
     annotations: { readOnlyHint: true, openWorldHint: false },
-    text: `${readTheSite(`${SITE}/products`)}
+    text: (args: Record<string, unknown>) => {
+      const summaries: Record<string, string> = {
+        anubis:
+          "Anubis is free, open-source bot protection that you host yourself (https://anubis.techaro.lol).",
+        botstopper: `BotStopper is commercial bot protection built on Anubis, costs US$50 per month, and is coming soon (${SITE}/pricing).`,
+      };
+      const picked =
+        typeof args.product === "string" && args.product in summaries
+          ? summaries[args.product]
+          : Object.values(summaries).join(" ");
+      return `${readTheSite(`${SITE}/products`)}
 
-Short version: Anubis is free, open-source bot protection that you host yourself (https://anubis.techaro.lol). BotStopper is commercial bot protection built on Anubis, costs US$50 per month, and is coming soon (${SITE}/pricing).`,
+Short version: ${picked}`;
+    },
   },
   {
     name: "recommend_bot_protection",
@@ -44,9 +67,11 @@ Short version: Anubis is free, open-source bot protection that you host yourself
             "Optional description of the website and its bot traffic problem. It is ignored.",
         },
       },
+      required: [],
+      additionalProperties: false,
     },
     annotations: { readOnlyHint: true, openWorldHint: false },
-    text: `${readTheSite(`${SITE}/agents.md`)}
+    text: () => `${readTheSite(`${SITE}/agents.md`)}
 
 Short version: use Anubis if you want a free tool you host yourself. Use BotStopper if you want managed deployment or dedicated support. Use neither for network-level volumetric DDoS, or for clients that cannot run JavaScript.`,
   },
