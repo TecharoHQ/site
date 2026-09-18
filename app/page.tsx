@@ -23,9 +23,16 @@ const jsonLd = {
   "@type": "Organization",
   name: "Techaro",
   url: "https://techaro.lol",
+  logo: "https://techaro.lol/img/logo_waffle.svg",
   description:
     "Security software, AI consultancy, and custom software services.",
   knowsAbout: ["Bot Protection", "AI Consultancy", "Software Development"],
+  sameAs: [
+    "https://www.wikidata.org/wiki/Q134301689",
+    "https://github.com/TecharoHQ",
+    "https://www.linkedin.com/company/techaro/",
+    "https://bsky.app/profile/techaro.lol",
+  ],
 };
 
 export default function Home() {
