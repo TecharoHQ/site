@@ -37,11 +37,11 @@ const sections = [
   },
   {
     title: "Email",
-    body: "If you email sales@techaro.lol, we keep your message and your email address so that we can reply to you and continue the conversation.",
+    body: "If you email me@xeiaso.net, we keep your message and your email address so that we can reply to you and continue the conversation.",
   },
   {
     title: "Questions",
-    body: "For questions about this policy or to ask about data we have about you, email sales@techaro.lol.",
+    body: "For questions about this policy or to ask about data we have about you, email me@xeiaso.net.",
   },
 ];
 

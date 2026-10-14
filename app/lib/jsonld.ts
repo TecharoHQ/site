@@ -29,7 +29,7 @@ export const organization = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    email: "sales@techaro.lol",
+    email: "me@xeiaso.net",
     url: `${SITE}/contact`,
     availableLanguage: "English",
   },

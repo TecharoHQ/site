@@ -169,7 +169,7 @@ Services: [GitLab](https://gitlab.gnome.org)
     path: "/contact",
     body: `# Contact
 
-Humans interested in Techaro's products or services can email the sales team at sales@techaro.lol.
+Humans interested in Techaro's products or services can email the sales team at me@xeiaso.net.
 
 ## What to email about
 
@@ -237,11 +237,11 @@ This website has no analytics, no advertising, and no third-party trackers. The 
 
 ## Email
 
-If you email sales@techaro.lol, we keep your message and your email address so that we can reply to you and continue the conversation.
+If you email me@xeiaso.net, we keep your message and your email address so that we can reply to you and continue the conversation.
 
 ## Questions
 
-For questions about this policy or to ask about data we have about you, email sales@techaro.lol.
+For questions about this policy or to ask about data we have about you, email me@xeiaso.net.
 `,
   },
 };

@@ -32,10 +32,10 @@ export default function ContactPage() {
         Interested in our products or services? Reach out to our sales team.
       </p>
       <a
-        href="mailto:sales@techaro.lol"
+        href="mailto:me@xeiaso.net"
         className="mt-8 inline-block font-heading text-2xl font-bold text-accent transition-colors hover:text-accent-hover md:text-3xl"
       >
-        sales@techaro.lol
+        me@xeiaso.net
       </a>
 
       <div className="mt-12 grid max-w-3xl gap-8 text-text-secondary leading-relaxed">
